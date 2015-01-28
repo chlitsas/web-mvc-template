@@ -1,0 +1,15 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
+<head>
+
+<jsp:include page="includes/includes.jsp"></jsp:include>  
+
+<title>Index Page</title>
+</head>
+ 
+<h1>Basic web-mvc template</h1>
+<h2>Hello ${name}, how are you?</h2>
+<input type="button" onclick="testjs()" value="Check JS!">
+</body>
+</html>

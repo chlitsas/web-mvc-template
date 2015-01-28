@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+ 
+version = '1.0'
+ 
+// Use JDK 8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+ 
+//Get dependencies
+repositories {
+	//1. Maven local repository
+	mavenLocal()
+	//2. Maven central repository
+    mavenCentral()
+}
+ 
+//Project dependencies
+dependencies {
+	compile 'ch.qos.logback:logback-classic:1.1.2'
+	compile 'org.springframework:spring-webmvc:4.1.4.RELEASE'
+	compile 'jstl:jstl:1.2'
+		
+	//compile and runtime configurations, but they are not added to the WAR archive
+	providedCompile 'javax.servlet:servlet-api:2.5'
+	providedCompile 'javax.servlet:jsp-api:2.0'
+}
+
+//small function that lists the project jar dependencies
+task listJars << {
+    configurations.compile.each { File file -> println file.name }
+}
